@@ -1,0 +1,25 @@
+<div class="login">
+   <div class="content-center cl-grey">
+      <div class="row justify-content-center">
+         <div class="col-xl-7 col-lg-7 col-md-7 col-sm-12">
+
+          <div class="web-sidebar-widget login-widget">
+            <div class="widget-head">
+              <h3 style="text-align: center;">Verify Phone Number</h3>
+            </div>
+            <div class="widget-body">
+            <%= form_tag(verify_path, :method => "put") do %>
+              <div class="form-group">
+                <%= label_tag(:otp_code, "Verification Code") %>
+                <%= text_field_tag :otp_code, params[:otp_code], id: 'otp_code' , class: "form-control", required: true%>
+              </div>
+            <%= button_tag "Verify", class: 'btn btn-block btn-primary mt-lg login-btn', data: {disable_with: "<i class='fas fa-spinner fa-spin'></i> Verifying..."} %>
+            <% end %>
+            <br>
+            <p style="text-align: center;"><%= button_to 'Resend code', resend_verify_url, method: :post, class: "devise_forms" %></p>
+            </div>
+          </div>
+         </div>
+      </div>
+   </div>
+</div>
